@@ -1,6 +1,7 @@
 <template>
   <div class="create-keep">
     <form @submit.prevent="createKeep()">
+      <h3 class="text-center">Create a Keep</h3>
       <div class="form-group">
         <label for="name">Name:</label>
         <input

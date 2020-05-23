@@ -5,7 +5,7 @@ $secondary: #e90e66;
 $danger: #dd0000;
 $success: lime;
 $warning: orange;
-$info: aqua;
+$info: rgb(138, 138, 138);
 
 $blue: blue;
 $indigo: indigo;
@@ -21,8 +21,7 @@ $white: white;
 $gray: gray;
 $gray-dark: darkslategray;
 
-$colors: (
-  "blue": $blue,
+$colors: ("blue": $blue,
   "indigo": $indigo,
   "purple": $purple,
   "pink": $pink,
@@ -34,5 +33,4 @@ $colors: (
   "cyan": $cyan,
   "white": $white,
   "gray": $gray,
-  "gray-dark": $gray-dark
-) !default;
+  "gray-dark": $gray-dark) !default;

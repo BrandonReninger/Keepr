@@ -36,6 +36,19 @@ namespace Keepr.Controllers
             }
         }
 
+        [HttpGet("{id}")]
+        public ActionResult<Vault> GetById(int id)
+        {
+            try
+            {
+                return Ok(_vs.GetById(id));
+            }
+            catch (System.Exception err)
+            {
+                return BadRequest(err.Message);
+            }
+        }
+
         [Authorize]
         [HttpPost]
         public ActionResult<Vault> Create([FromBody] Vault newVault)
@@ -50,6 +63,26 @@ namespace Keepr.Controllers
                 }
                 newVault.UserId = user.Value;
                 return Ok(_vs.Create(newVault));
+            }
+            catch (System.Exception err)
+            {
+                return BadRequest(err.Message);
+            }
+        }
+
+        [Authorize]
+        [HttpDelete("{id}")]
+        public ActionResult<string> Delete(int id)
+        {
+            try
+            {
+                Claim user = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+                if (user == null)
+                {
+                    throw new Exception("Login dude.");
+                }
+                string userId = user.Value;
+                return Ok(_vs.Delete(id, userId));
             }
             catch (System.Exception err)
             {
