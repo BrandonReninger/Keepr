@@ -18,6 +18,7 @@
             <li class="list-group-item">{{publicKeep.keeps}}</li>
           </ul>
         </div>
+        <button class="btn btn-primary" @click="saveKeepToVault(publicKeep.id)">SAVE</button>
       </div>
     </div>
   </div>
@@ -43,6 +44,10 @@ export default {
   methods: {
     logout() {
       this.$store.dispatch("logout");
+    },
+
+    saveKeepToVault(keepId) {
+      this.$store.dispatch("saveKeep", keepId);
     }
   },
   components: { CreateKeep }

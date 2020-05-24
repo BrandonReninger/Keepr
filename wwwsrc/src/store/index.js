@@ -47,6 +47,21 @@ export default new Vuex.Store({
       }
     },
 
+    async getPrivateKeeps({}) {
+
+    },
+
+    async saveKeepToVault({
+      dispatch
+    }, keepId) {
+      try {
+        let res = await api.post('keepvaults' + keepId)
+        dispatch('getPrivateKeeps')
+      } catch (error) {
+        console.error(error)
+      }
+    },
+
     //NOTE probably add a dispatch for privatekeeps once we're at that point
     async createKeep({
       dispatch
