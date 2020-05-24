@@ -31,9 +31,10 @@ export default {
     this.$store.dispatch("getPublicKeeps");
   },
   computed: {
-    user() {
-      return this.$store.state.user;
-    },
+    // user() {
+    //   console.log(this.$store.state.user);
+    //   return this.$store.state.user;
+    // },
     publicKeeps() {
       // console.log(this.$store.state.publicKeeps);
       return this.$store.state.publicKeeps;

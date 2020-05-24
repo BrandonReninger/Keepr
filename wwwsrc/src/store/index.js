@@ -59,11 +59,11 @@ export default new Vuex.Store({
       }
     },
 
-    async getVaults({
+    async getVaultsByUserId({
       commit
-    }) {
+    }, user) {
       try {
-        let res = await api.get('vaults')
+        let res = await api.get('vaults/user')
         commit('setVaults', res.data)
       } catch (error) {
         console.error(error)

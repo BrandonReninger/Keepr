@@ -22,11 +22,16 @@
 import CreateVault from "../components/CreateVault.vue";
 export default {
   mounted() {
-    this.$store.dispatch("getVaults");
+    this.$store.dispatch("getVaultsByUserId");
   },
   computed: {
     vaults() {
+      console.log(this.$store.state.vaults);
       return this.$store.state.vaults;
+    },
+    user() {
+      console.log(this.$store.state.user);
+      return this.$store.state.user;
     }
   },
   methods: {

@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Security.Claims;
 using Keepr.Models;
 using Keepr.Repositories;
 
@@ -18,6 +19,11 @@ namespace Keepr.Services
         internal IEnumerable<Vault> GetAll()
         {
             return _repo.GetAll();
+        }
+
+        internal IEnumerable<Vault> GetVaultsByUserId(string userId)
+        {
+            return _repo.GetVaultsByUserId(userId);
         }
 
         internal Vault GetById(int id)
@@ -48,5 +54,6 @@ namespace Keepr.Services
             }
             throw new Exception("We have no idea how you frigged up this bad");
         }
+
     }
 }
