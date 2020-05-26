@@ -4,6 +4,7 @@ import router from "./router";
 import store from "./store";
 import { Auth0Plugin, onAuth } from "@bcwdev/auth0-vue";
 import { domain, clientId, audience } from "./authConfig";
+import vuetify from './plugins/vuetify';
 
 Vue.use(Auth0Plugin, {
   domain,
@@ -21,6 +22,8 @@ Vue.use(Auth0Plugin, {
 new Vue({
   router,
   store,
+  vuetify,
+
   render: function(h) {
     return h(App);
   }
