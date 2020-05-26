@@ -17,8 +17,8 @@
             <li class="list-group-item">{{publicKeep.shares}}</li>
             <li class="list-group-item">{{publicKeep.keeps}}</li>
           </ul>
+          <button class="btn btn-primary" @click="saveKeepToVault(publicKeep.id)">SAVE</button>
         </div>
-        <button class="btn btn-primary" @click="saveKeepToVault(publicKeep.id)">SAVE</button>
       </div>
     </div>
   </div>
@@ -47,7 +47,7 @@ export default {
     },
 
     saveKeepToVault(keepId) {
-      this.$store.dispatch("saveKeep", keepId);
+      this.$store.dispatch("saveKeep", { params: keepId, vaultId });
     }
   },
   components: { CreateKeep }

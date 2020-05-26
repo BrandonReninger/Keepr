@@ -55,6 +55,12 @@ namespace Keepr.Controllers
         {
             try
             {
+                Claim user = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+                if (user == null)
+                {
+                    throw new Exception("Login first!!");
+                }
+                string userId = user.Value;
                 return Ok(_vs.GetKeepsByVaultId(id));
             }
             catch (System.Exception err)

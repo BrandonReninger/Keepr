@@ -18,6 +18,7 @@ let api = Axios.create({
 export default new Vuex.Store({
   state: {
     publicKeeps: [],
+    vaultKeeps: [],
     vaults: []
   },
   mutations: {
@@ -47,16 +48,16 @@ export default new Vuex.Store({
       }
     },
 
-    async getPrivateKeeps({}) {
+    async getVaultKeeps({}) {
 
     },
 
     async saveKeepToVault({
       dispatch
-    }, keepId) {
+    }, payload) {
       try {
-        let res = await api.post('keepvaults' + keepId)
-        dispatch('getPrivateKeeps')
+        let res = await api.post('keepvaults' + vaultId, payload)
+        dispatch('getVaultKeeps')
       } catch (error) {
         console.error(error)
       }
