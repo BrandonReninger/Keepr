@@ -17,16 +17,23 @@
             <li class="list-group-item">{{publicKeep.shares}}</li>
             <li class="list-group-item">{{publicKeep.keeps}}</li>
           </ul>
-          <select>
-            <option disabled value>Please select one</option>
-            <option
-              class="dropdown-item"
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
               type="button"
-              v-for="vault in vaults"
-              :key="vault.id"
-              @click="saveKeepToVault(vault.id)"
-            >{{vault.name}}</option>
-          </select>
+              id="dropdownMenuButton"
+              data-toggle="dropdown"
+            >Add To Vault</button>
+            <div class="dropdown-menu">
+              <a
+                class="dropdown-item"
+                v-show="vault.name"
+                v-for="vault in vaults"
+                :key="vault.id"
+                @click="saveKeepToVault(vault.id)"
+              >{{vault.name}}</a>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -55,7 +62,15 @@ export default {
     logout() {
       this.$store.dispatch("logout");
     },
-    saveKeepToVault(vaultId) {}
+    saveKeepToVault(vaultId) {
+      this.activePublicKeep.keeps++;
+      let dataObject = {
+        vaultId: vaultId,
+        keep: this.activePublicKeep,
+        keepId: this.keep.id
+      };
+      this.$store.dispatch("saveKeepToVault", dataObject);
+    }
   },
   components: { CreateKeep }
 };
