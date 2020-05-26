@@ -17,23 +17,16 @@
             <li class="list-group-item">{{publicKeep.shares}}</li>
             <li class="list-group-item">{{publicKeep.keeps}}</li>
           </ul>
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle"
+          <select>
+            <option disabled value>Please select one</option>
+            <option
+              class="dropdown-item"
               type="button"
-              id="dropdownMenuButton"
-              data-toggle="dropdown"
-            >Add To Vault</button>
-            <div class="dropdown-menu">
-              <button
-                class="dropdown-item"
-                type="button"
-                v-for="vault in vaults"
-                :key="vault.id"
-                @click="saveKeepToVault(vault.id)"
-              >{{vault.name}}</button>
-            </div>
-          </div>
+              v-for="vault in vaults"
+              :key="vault.id"
+              @click="saveKeepToVault(vault.id)"
+            >{{vault.name}}</option>
+          </select>
         </div>
       </div>
     </div>
