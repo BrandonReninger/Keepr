@@ -100,7 +100,7 @@ export default new Vuex.Store({
     }, newVault) {
       try {
         let res = await api.post('vaults', newVault)
-        dispatch('getVaults')
+        dispatch('getVaultsByUserId')
       } catch (error) {
         console.error(error)
       }

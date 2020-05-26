@@ -12,7 +12,6 @@ import {
   clientId,
   audience
 } from "./authConfig";
-import vuetify from './plugins/vuetify';
 
 Vue.use(Auth0Plugin, {
   domain,
