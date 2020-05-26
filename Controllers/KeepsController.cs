@@ -50,26 +50,6 @@ namespace Keepr.Controllers
         }
 
         [Authorize]
-        [HttpGet("{id}/vaults")]
-        public ActionResult<VaultKeepViewModel> GetKeepsByVaultId(int id)
-        {
-            try
-            {
-                Claim user = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
-                if (user == null)
-                {
-                    throw new Exception("Login first!!");
-                }
-                string userId = user.Value;
-                return Ok(_vs.GetKeepsByVaultId(id));
-            }
-            catch (System.Exception err)
-            {
-                return BadRequest(err.Message);
-            }
-        }
-
-        [Authorize]
         [HttpPost]
         public ActionResult<Keep> Post([FromBody] Keep newKeep)
         {
