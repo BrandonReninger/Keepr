@@ -111,7 +111,7 @@ export default new Vuex.Store({
     }, vaultId) {
       try {
         await api.delete('vaults/' + vaultId)
-        dispatch('getVaults')
+        dispatch('getVaultsByUserId')
       } catch (error) {
         console.error(error)
       }

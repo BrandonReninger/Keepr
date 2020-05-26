@@ -12,10 +12,6 @@ import {
   clientId,
   audience
 } from "./authConfig";
-<<<<<<< HEAD
-=======
-import vuetify from './plugins/vuetify';
->>>>>>> 23ab649a9297e3353b0299ab6953a633dccd13f9
 
 Vue.use(Auth0Plugin, {
   domain,
@@ -33,11 +29,6 @@ Vue.use(Auth0Plugin, {
 new Vue({
   router,
   store,
-<<<<<<< HEAD
-=======
-  vuetify,
-
->>>>>>> 23ab649a9297e3353b0299ab6953a633dccd13f9
   render: function (h) {
     return h(App);
   }
