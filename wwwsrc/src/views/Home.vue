@@ -17,12 +17,32 @@
             <li class="list-group-item">{{publicKeep.shares}}</li>
             <li class="list-group-item">{{publicKeep.keeps}}</li>
           </ul>
-          <button class="btn btn-primary" @click="saveKeepToVault(publicKeep.id)">SAVE</button>
+          <div class="dropdown">
+            <button
+              class="btn btn-secondary dropdown-toggle"
+              type="button"
+              id="dropdownMenu2"
+              data-toggle="dropdown"
+              aria-haspopup="true"
+              aria-expanded="false"
+            >Save to a vault</button>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+              <button
+                v-for="vault in vaults"
+                :key="vault.id"
+                class="dropdown-item"
+                type="button"
+                @click="saveKeepToVault(vault.id)"
+              >{{vault.name}}</button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </div>
 </template>
+
+//NOTE make a v-for with available vaults at saveKeep call in a dropdown or something, start there tomorrow
 
 <script>
 import CreateKeep from "../components/CreateKeep.vue";
@@ -32,13 +52,13 @@ export default {
     this.$store.dispatch("getPublicKeeps");
   },
   computed: {
-    // user() {
-    //   console.log(this.$store.state.user);
-    //   return this.$store.state.user;
-    // },
     publicKeeps() {
       // console.log(this.$store.state.publicKeeps);
       return this.$store.state.publicKeeps;
+    },
+    vaults() {
+      // console.log(this.$store.state.vaults);
+      return this.$store.state.vaults;
     }
   },
   methods: {
@@ -46,8 +66,8 @@ export default {
       this.$store.dispatch("logout");
     },
 
-    saveKeepToVault(keepId) {
-      this.$store.dispatch("saveKeep", { params: keepId, vaultId });
+    saveKeepToVault(vaultId) {
+      this.$store.dispatch("saveKeep", vaultId);
     }
   },
   components: { CreateKeep }

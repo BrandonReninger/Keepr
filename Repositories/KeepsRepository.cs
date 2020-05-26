@@ -48,6 +48,7 @@ namespace Keepr.Repositories
 
         internal IEnumerable<VaultKeepViewModel> GetKeepsByVaultId(string userId, int vaultId)
         {
+            //NOTE don't forget SELECT next time, ugh!!!
             string sql = @"
             SELECT
             k.*,
