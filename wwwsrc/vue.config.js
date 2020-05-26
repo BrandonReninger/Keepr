@@ -1,4 +1,7 @@
 module.exports = {
-  outputDir: '../wwwroot',
-  productionSourceMap: false
+  "outputDir": "../wwwroot",
+  "productionSourceMap": false,
+  "transpileDependencies": [
+    "vuetify"
+  ]
 }

@@ -65,7 +65,6 @@ export default {
     logout() {
       this.$store.dispatch("logout");
     },
-
     saveKeepToVault(vaultId) {
       this.$store.dispatch("saveKeep", vaultId);
     }
