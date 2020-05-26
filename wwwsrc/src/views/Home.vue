@@ -21,17 +21,15 @@
             <button
               class="btn btn-secondary dropdown-toggle"
               type="button"
-              id="dropdownMenu2"
+              id="dropdownMenuButton"
               data-toggle="dropdown"
-              aria-haspopup="true"
-              aria-expanded="false"
-            >Save to a vault</button>
-            <div class="dropdown-menu" aria-labelledby="dropdownMenu2">
+            >Add To Vault</button>
+            <div class="dropdown-menu">
               <button
-                v-for="vault in vaults"
-                :key="vault.id"
                 class="dropdown-item"
                 type="button"
+                v-for="vault in vaults"
+                :key="vault.id"
                 @click="saveKeepToVault(vault.id)"
               >{{vault.name}}</button>
             </div>
@@ -42,14 +40,13 @@
   </div>
 </template>
 
-//NOTE make a v-for with available vaults at saveKeep call in a dropdown or something, start there tomorrow
-
 <script>
 import CreateKeep from "../components/CreateKeep.vue";
 export default {
   name: "home",
   mounted() {
     this.$store.dispatch("getPublicKeeps");
+    this.$store.dispatch("getVaultsByUserId");
   },
   computed: {
     publicKeeps() {
@@ -57,7 +54,7 @@ export default {
       return this.$store.state.publicKeeps;
     },
     vaults() {
-      // console.log(this.$store.state.vaults);
+      console.log(this.$store.state.vaults);
       return this.$store.state.vaults;
     }
   },
@@ -65,9 +62,7 @@ export default {
     logout() {
       this.$store.dispatch("logout");
     },
-    saveKeepToVault(vaultId) {
-      this.$store.dispatch("saveKeep", vaultId);
-    }
+    saveKeepToVault(vaultId) {}
   },
   components: { CreateKeep }
 };

@@ -86,8 +86,9 @@ export default new Vuex.Store({
 
     async getVaultsByUserId({
       commit
-    }, user) {
+    }) {
       try {
+        // debugger
         let res = await api.get('vaults/user')
         commit('setVaults', res.data)
       } catch (error) {
