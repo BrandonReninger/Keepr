@@ -71,7 +71,7 @@ export default new Vuex.Store({
     }, dataObject) {
       try {
         let res = await api.post('vaultkeeps/', dataObject)
-        // dispatch('getVaultKeeps')
+        dispatch('getVaultKeeps')
         // commit('setActivePublicKeep')
       } catch (error) {
         console.error(error)

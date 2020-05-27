@@ -47,9 +47,9 @@ namespace Keepr.Services
             throw new Exception("I don't even know man!");
         }
 
-        internal IEnumerable<VaultKeepViewModel> GetKeepsByVaultId(string userId, int vaultId)
+        internal IEnumerable<VaultKeepViewModel> GetKeepsByVaultId(int vaultId, string userId)
         {
-            return _repo.GetKeepsByVaultId(userId, vaultId);
+            return _repo.GetKeepsByVaultId(vaultId, userId);
         }
     }
 }

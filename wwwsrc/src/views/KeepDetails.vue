@@ -45,7 +45,7 @@ export default {
   },
   computed: {
     publicKeep() {
-      console.log(this.$store.state.activePublicKeep);
+      //   console.log(this.$store.state.activePublicKeep);
       return this.$store.state.activePublicKeep;
     },
     vaults() {

@@ -73,17 +73,12 @@ namespace Keepr.Controllers
 
         [Authorize]
         [HttpGet("{id}/keeps")]
-        public ActionResult<VaultKeepViewModel> GetKeepsByVaultId(string userId, int vaultId)
+        public ActionResult<IEnumerable<VaultKeepViewModel>> GetKeepsByVaultId(int id)
         {
             try
             {
-                Claim user = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
-                if (user == null)
-                {
-                    throw new Exception("Login first!!");
-                }
-                userId = user.Value;
-                return Ok(_ks.GetKeepsByVaultId(userId, vaultId));
+                var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                return Ok(_ks.GetKeepsByVaultId(id, userId));
             }
             catch (System.Exception err)
             {
