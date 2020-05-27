@@ -6,20 +6,13 @@
         <create-vault></create-vault>
       </div>
     </div>
-    <div class="col-3 shadow" v-for="vault in vaults" :key="vault.id">
-      <div class="card" style="width: 18rem;">
-        <div class="card-body">
-          <h5 class="card-title">{{vault.name}}</h5>
-          <p class="card-text">{{vault.description}}</p>
-        </div>
-        <button @click="deleteVault(vault.id)" class="btn btn-danger">DELETE VAULT</button>
-      </div>
-    </div>
+    <vaults v-for="vault in vaults" :key="vault.id" :vaultData="vault"></vaults>
   </div>
 </template>
 
 <script>
 import CreateVault from "../components/CreateVault.vue";
+import Vaults from "../components/Vaults.vue";
 export default {
   mounted() {
     this.$store.dispatch("getVaultsByUserId");
@@ -39,7 +32,7 @@ export default {
       this.$store.dispatch("deleteVault", vaultId);
     }
   },
-  components: { CreateVault }
+  components: { CreateVault, Vaults }
 };
 </script>
 

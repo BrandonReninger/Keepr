@@ -19,6 +19,7 @@ export default new Vuex.Store({
   state: {
     publicKeeps: [],
     activePublicKeep: {},
+    activeVault: {},
     vaultKeeps: [],
     vaults: []
   },
@@ -34,6 +35,9 @@ export default new Vuex.Store({
     },
     setActivePublicKeep(state, activePublicKeep) {
       state.activePublicKeep = activePublicKeep;
+    },
+    setActiveVault(state, activeVault) {
+      state.activeVault = activeVault
     }
   },
   actions: {
