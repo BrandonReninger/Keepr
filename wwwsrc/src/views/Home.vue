@@ -16,7 +16,6 @@ export default {
   name: "home",
   mounted() {
     this.$store.dispatch("getPublicKeeps");
-    // this.$store.dispatch("getVaultsByUserId");
     // this.$store.dispatch("getActivePublicKeep");
   },
   computed: {
@@ -24,10 +23,7 @@ export default {
       // console.log(this.$store.state.publicKeeps);
       return this.$store.state.publicKeeps;
     },
-    // vaults() {
-    //   // console.log(this.$store.state.vaults);
-    //   return this.$store.state.vaults;
-    // },
+
     activePublicKeep() {
       console.log(this.$store.state.activePublicKeep);
       return this.$store.state.activePublicKeep;

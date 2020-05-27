@@ -12,24 +12,6 @@
             <li class="list-group-item">{{keepData.shares}}</li>
             <li class="list-group-item">{{keepData.keeps}}</li>
           </ul>
-
-          <!-- <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton"
-              data-toggle="dropdown"
-            >Add To Vault</button>
-            <div class="dropdown-menu">
-              <a
-                class="dropdown-item"
-                v-show="vault.name"
-                v-for="vault in vaults"
-                :key="vault.id"
-                @click="saveKeepToVault(vault.id)"
-              >{{vault.name}}</a>
-            </div>
-          </div>-->
         </div>
       </div>
     </div>
@@ -61,16 +43,6 @@ export default {
         params: { keepId: this.keepData.id }
       });
     }
-
-    // saveKeepToVault(vaultId) {
-    //   this.activePublicKeep.keeps++;
-    //   let dataObject = {
-    //     vaultId: vaultId,
-    //     keep: this.activePublicKeep,
-    //     keepId: this.activePublicKeep.id
-    //   };
-    //   this.$store.dispatch("saveKeepToVault", dataObject);
-    // }
   },
   components: {}
 };
