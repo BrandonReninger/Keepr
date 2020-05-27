@@ -94,8 +94,9 @@ export default new Vuex.Store({
       commit
     }, keepId) {
       try {
+        debugger
         let res = await api.get('keeps/' + keepId)
-        commit('setActivePublicKeep')
+        commit('setActivePublicKeep', res.data)
       } catch (error) {
         console.error(error)
       }
