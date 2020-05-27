@@ -5,73 +5,42 @@
         <create-keep></create-keep>
       </div>
     </div>
-    <div class="row">
-      <div class="col-3" v-for="publicKeep in publicKeeps" :key="publicKeep.id">
-        <div class="card" style="18rem;">
-          <img :src="publicKeep.img" class="card-img-top img-fluid" />
-          <div class="card-body">
-            <h5 class="card-title">{{publicKeep.name}}</h5>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">{{publicKeep.views}}</li>
-            <li class="list-group-item">{{publicKeep.shares}}</li>
-            <li class="list-group-item">{{publicKeep.keeps}}</li>
-          </ul>
-          <div class="dropdown">
-            <button
-              class="btn btn-secondary dropdown-toggle"
-              type="button"
-              id="dropdownMenuButton"
-              data-toggle="dropdown"
-            >Add To Vault</button>
-            <div class="dropdown-menu">
-              <a
-                class="dropdown-item"
-                v-show="vault.name"
-                v-for="vault in vaults"
-                :key="vault.id"
-                @click="saveKeepToVault(vault.id)"
-              >{{vault.name}}</a>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
+    <keeps v-for="publicKeep in publicKeeps" :key="publicKeep.id" :keepData="publicKeep"></keeps>
   </div>
 </template>
 
 <script>
 import CreateKeep from "../components/CreateKeep.vue";
+import Keeps from "../components/Keeps.vue";
 export default {
   name: "home",
   mounted() {
     this.$store.dispatch("getPublicKeeps");
-    this.$store.dispatch("getVaultsByUserId");
+    // this.$store.dispatch("getVaultsByUserId");
+    // this.$store.dispatch("getActivePublicKeep");
   },
   computed: {
     publicKeeps() {
       // console.log(this.$store.state.publicKeeps);
       return this.$store.state.publicKeeps;
     },
-    vaults() {
-      console.log(this.$store.state.vaults);
-      return this.$store.state.vaults;
+    // vaults() {
+    //   // console.log(this.$store.state.vaults);
+    //   return this.$store.state.vaults;
+    // },
+    activePublicKeep() {
+      console.log(this.$store.state.activePublicKeep);
+      return this.$store.state.activePublicKeep;
     }
   },
   methods: {
     logout() {
       this.$store.dispatch("logout");
     },
-    saveKeepToVault(vaultId) {
-      this.activePublicKeep.keeps++;
-      let dataObject = {
-        vaultId: vaultId,
-        keep: this.activePublicKeep,
-        keepId: this.keep.id
-      };
-      this.$store.dispatch("saveKeepToVault", dataObject);
+    created() {
+      this.$store.disptach("getPublicKeeps");
     }
   },
-  components: { CreateKeep }
+  components: { CreateKeep, Keeps }
 };
 </script>

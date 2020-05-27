@@ -22,11 +22,18 @@ namespace Keepr.Controller
             _vks = vks;
         }
 
+        [Authorize]
         [HttpPost]
         public ActionResult<VaultKeep> Create([FromBody] VaultKeep newVaultKeep)
         {
             try
             {
+                Claim user = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+                newVaultKeep.UserId = user.Value;
+                if (user == null)
+                {
+                    throw new Exception("Login!!");
+                }
                 return Ok(_vks.Create(newVaultKeep));
             }
             catch (System.Exception err)
