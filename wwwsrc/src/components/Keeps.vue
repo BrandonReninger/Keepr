@@ -1,18 +1,16 @@
 <template>
-  <div class="keeps container">
-    <div class="card-columns">
-      <div type="button" @click="keepDetails()">
-        <div class="card" style="18rem;">
-          <img v-if="keepData.img" :src="keepData.img" class="card-img-top img-fluid" />
-          <div class="card-body">
-            <h5 class="card-title">{{keepData.name}}</h5>
-          </div>
-          <ul class="list-group list-group-flush">
-            <li class="list-group-item">views: {{keepData.views}}</li>
-            <li class="list-group-item">shares: {{keepData.shares}}</li>
-            <li class="list-group-item">saves: {{keepData.keeps}}</li>
-          </ul>
+  <div class="keeps">
+    <div type="button" @click="keepDetails()">
+      <div class="card" style="18rem;">
+        <img v-if="keepData.img" :src="keepData.img" class="card-img-top img-fluid" />
+        <div class="card-body">
+          <h5 class="card-title">{{keepData.name}}</h5>
         </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">views: {{keepData.views}}</li>
+          <li class="list-group-item">shares: {{keepData.shares}}</li>
+          <li class="list-group-item">saves: {{keepData.keeps}}</li>
+        </ul>
       </div>
     </div>
   </div>

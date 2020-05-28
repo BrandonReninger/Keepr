@@ -5,7 +5,14 @@
         <create-keep></create-keep>
       </div>
     </div>
-    <keeps v-for="publicKeep in publicKeeps" :key="publicKeep.id" :keepData="publicKeep"></keeps>
+    <div class="row ml-2 mr-2">
+      <keeps
+        class="col-3"
+        v-for="publicKeep in publicKeeps"
+        :key="publicKeep.id"
+        :keepData="publicKeep"
+      ></keeps>
+    </div>
   </div>
 </template>
 
