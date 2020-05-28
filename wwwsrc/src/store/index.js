@@ -59,11 +59,15 @@ export default new Vuex.Store({
       }
     },
 
+
+    //NOTE this needs a little fixing
     async getVaultKeeps({
       commit
     }, vaultId) {
       try {
+        debugger
         let res = await api.get('vaults/' + vaultId + '/keeps')
+        commit('setVaultKeeps', res.data)
       } catch (error) {
         console.error(error)
       }
@@ -75,8 +79,8 @@ export default new Vuex.Store({
     }, dataObject) {
       try {
         let res = await api.post('vaultkeeps/', dataObject)
+        commit('setVaultKeeps')
         dispatch('getVaultKeeps')
-        // commit('setActivePublicKeep')
       } catch (error) {
         console.error(error)
       }
@@ -124,6 +128,19 @@ export default new Vuex.Store({
       try {
         let res = await api.post('vaults', newVault)
         dispatch('getVaultsByUserId')
+      } catch (error) {
+        console.error(error)
+      }
+    },
+
+    async getActiveVault({
+      commit,
+      dispatch
+    }, vaultId) {
+      try {
+        let res = await api.get('vaults/' + vaultId)
+        commit('setActiveVault')
+        dispatch('getPublicKeeps')
       } catch (error) {
         console.error(error)
       }

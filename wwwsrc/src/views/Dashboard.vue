@@ -7,6 +7,7 @@
       </div>
     </div>
     <vaults v-for="vault in vaults" :key="vault.id" :vaultData="vault"></vaults>
+    <div v-for="keep in vaultKeeps" :key="keep.id">{{keep.name}}</div>
   </div>
 </template>
 
@@ -22,16 +23,19 @@ export default {
       console.log(this.$store.state.vaults);
       return this.$store.state.vaults;
     },
-    user() {
-      console.log(this.$store.state.user);
-      return this.$store.state.user;
+    vaultKeeps() {
+      console.log("vaultKeeps", this.$store.state.vaultKeeps);
+      return this.$store.state.vaultKeeps;
+    },
+    keeps() {
+      return this.$store.state.publicKeeps;
     }
+    // user() {
+    //   console.log(this.$store.state.user);
+    //   return this.$store.state.user;
+    // }
   },
-  methods: {
-    deleteVault(vaultId) {
-      this.$store.dispatch("deleteVault", vaultId);
-    }
-  },
+  methods: {},
   components: { CreateVault, Vaults }
 };
 </script>

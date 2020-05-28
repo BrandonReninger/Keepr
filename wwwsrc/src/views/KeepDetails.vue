@@ -63,6 +63,8 @@ export default {
         keepId: this.publicKeep.id
       };
       this.$store.dispatch("saveKeepToVault", dataObject);
+      this.$store.commit("setVaultKeeps");
+      this.$store.dispatch("getVaultKeeps", dataObject.vaultId);
     }
   },
   components: {}
