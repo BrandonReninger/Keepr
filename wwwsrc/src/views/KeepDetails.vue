@@ -61,18 +61,20 @@ export default {
   },
   methods: {
     saveKeepToVault(vaultId) {
+      this.publicKeep.keeps++;
       let dataObject = {
         vaultId: vaultId,
         keep: this.publicKeep,
         keepId: this.publicKeep.id
       };
-      let editObject = JSON.parse(JSON.stringify(this.publicKeep));
-      editObject.keeps = editObject.keeps++;
+      // let editObject = JSON.parse(JSON.stringify(this.publicKeep));
+      // editObject.keeps = editObject.keeps++;
 
       this.$store.dispatch("saveKeepToVault", dataObject);
       this.$store.commit("setVaultKeeps");
+      // this.$store.commit("setUserKeeps", );
       this.$store.dispatch("getVaultKeeps", vaultId);
-      this.$store.dispatch("saveCount", editObject);
+      this.$store.dispatch("editKeep", dataObject.keep);
     },
     deleteKeep(id) {
       console.log("delete", this.publicKeep.id);
