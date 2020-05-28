@@ -135,6 +135,16 @@ export default new Vuex.Store({
       } catch (error) {
         console.error(error)
       }
+    },
+
+    async deleteKeep({
+      dispatch
+    }, keepId) {
+      try {
+        await api.delete('')
+      } catch (error) {
+        console.error(error)
+      }
     }
 
   }

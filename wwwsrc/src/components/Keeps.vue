@@ -35,7 +35,6 @@ export default {
   },
   methods: {
     keepDetails() {
-      console.log(this.keepData.id);
       this.$store.commit("setActivePublicKeep");
       this.$store.dispatch("getActivePublicKeep", this.keepData.id);
       this.$router.push({

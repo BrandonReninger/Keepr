@@ -17,13 +17,11 @@ export default {
   name: "dashboard",
   props: ["vaultData"],
   mounted() {
-    console.log(this.vaultData);
     this.$store.dispatch("getVaultsByUserId");
     // this.$store.dispatch("getVaultKeeps", this.vault.id);
   },
   computed: {
     vaults() {
-      console.log(this.$store.state.vaults);
       return this.$store.state.vaults;
     }
     // vaultKeeps() {

@@ -25,7 +25,6 @@ export default {
     },
 
     activePublicKeep() {
-      console.log(this.$store.state.activePublicKeep);
       return this.$store.state.activePublicKeep;
     }
   },

@@ -28,6 +28,11 @@
           >{{vault.name}}</a>
         </div>
       </div>
+      <button
+        v-show="this.publicKeep.userId == this.$auth.user.sub"
+        @click="deleteKeep(keepData.id)"
+        class="btn btn-danger"
+      >DELETE</button>
     </div>
   </div>
 </template>
@@ -45,7 +50,8 @@ export default {
   },
   computed: {
     publicKeep() {
-      //   console.log(this.$store.state.activePublicKeep);
+      console.log(this.$auth.user);
+      console.log(this.$store.state.activePublicKeep);
       return this.$store.state.activePublicKeep;
     },
     vaults() {
@@ -55,7 +61,6 @@ export default {
   },
   methods: {
     saveKeepToVault(vaultId) {
-      console.log("saveKeepToVault", this.publicKeep);
       this.publicKeep.keeps++;
       let dataObject = {
         vaultId: vaultId,
@@ -69,6 +74,9 @@ export default {
       //   name: "VaultKeeps",
       //   params: { vaultId: this.vaultData.id }
       // });
+    },
+    deleteKeep(id) {
+      this.$store.dispatch("deleteKeep", keepId);
     }
   },
   components: {}
