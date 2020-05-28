@@ -35,10 +35,7 @@ export default new Vuex.Store({
     },
     setActivePublicKeep(state, activePublicKeep) {
       state.activePublicKeep = activePublicKeep;
-    },
-    // setActiveVault(state, activeVault) {
-    //   state.activeVault = activeVault
-    // }
+    }
   },
   actions: {
     setBearer({}, bearer) {
@@ -128,19 +125,6 @@ export default new Vuex.Store({
         console.error(error)
       }
     },
-
-    // async getActiveVault({
-    //   commit,
-    //   dispatch
-    // }, vaultId) {
-    //   try {
-    //     let res = await api.get('vaults/' + vaultId)
-    //     commit('setActiveVault')
-    //     dispatch('getPublicKeeps')
-    //   } catch (error) {
-    //     console.error(error)
-    //   }
-    // },
 
     async deleteVault({
       dispatch

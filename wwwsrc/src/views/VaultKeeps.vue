@@ -1,6 +1,6 @@
 <template>
   <div class="VaultKeeps">
-    <keeps v-for="vaultKeep in vaultKeeps" :key="vaultKeep.vaultKeepId"></keeps>
+    <keeps :keepData="vaultKeep" v-for="vaultKeep in vaultKeeps" :key="vaultKeep.vaultKeepId"></keeps>
   </div>
 </template>
 
