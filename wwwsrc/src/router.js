@@ -32,13 +32,12 @@ export default new Router({
       name: "KeepDetails",
       component: KeepDetails,
       beforeEnter: authGuard
+    },
+    {
+      path: "/VaultKeeps/:vaultId",
+      name: "VaultKeeps",
+      component: VaultKeeps,
+      beforeEnter: authGuard
     }
-    // },
-    // {
-    //   path: "/VaultKeeps/:vaultId",
-    //   name: "VaultKeeps",
-    //   component: VaultKeeps,
-    //   beforeEnter: authGuard
-    // }
   ]
 });

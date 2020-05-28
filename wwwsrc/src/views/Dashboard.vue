@@ -7,7 +7,6 @@
       </div>
     </div>
     <vaults v-for="vault in vaults" :key="vault.id" :vaultData="vault"></vaults>
-    <div v-for="keep in vaultKeeps" :key="keep.id">{{keep.name}}</div>
   </div>
 </template>
 
@@ -15,21 +14,25 @@
 import CreateVault from "../components/CreateVault.vue";
 import Vaults from "../components/Vaults.vue";
 export default {
+  name: "dashboard",
+  props: ["vaultData"],
   mounted() {
+    console.log(this.vaultData);
     this.$store.dispatch("getVaultsByUserId");
+    // this.$store.dispatch("getVaultKeeps", this.vault.id);
   },
   computed: {
     vaults() {
       console.log(this.$store.state.vaults);
       return this.$store.state.vaults;
-    },
-    vaultKeeps() {
-      console.log("vaultKeeps", this.$store.state.vaultKeeps);
-      return this.$store.state.vaultKeeps;
-    },
-    keeps() {
-      return this.$store.state.publicKeeps;
     }
+    // vaultKeeps() {
+    //   console.log("vaultKeeps", this.$store.state.vaultKeeps);
+    //   return this.$store.state.vaultKeeps;
+    // },
+    // keeps() {
+    //   return this.$store.state.publicKeeps;
+    // }
     // user() {
     //   console.log(this.$store.state.user);
     //   return this.$store.state.user;

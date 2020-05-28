@@ -64,7 +64,11 @@ export default {
       };
       this.$store.dispatch("saveKeepToVault", dataObject);
       this.$store.commit("setVaultKeeps");
-      this.$store.dispatch("getVaultKeeps", dataObject.vaultId);
+      this.$store.dispatch("getVaultKeeps", vaultId);
+      // this.$route.push({
+      //   name: "VaultKeeps",
+      //   params: { vaultId: this.vaultData.id }
+      // });
     }
   },
   components: {}
