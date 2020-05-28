@@ -42,18 +42,20 @@ namespace Keepr.Controller
             }
         }
 
-        [Authorize]
-        [HttpDelete("{id}")]
-        public ActionResult<string> Delete(int id)
-        {
-            try
-            {
-
-            }
-            catch (System.Exception err)
-            {
-                return BadRequest(err.Message);
-            }
-        }
+        // [Authorize]
+        // [HttpDelete("{id}")]
+        // public ActionResult<string> Delete(int id)
+        // {
+        //     try
+        //     {
+        //         Claim user = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier);
+        //         string userId = user.Value;
+        //         return Ok(_vks.Delete(id, userId));
+        //     }
+        //     catch (System.Exception err)
+        //     {
+        //         return BadRequest(err.Message);
+        //     }
+        // }
     }
 }

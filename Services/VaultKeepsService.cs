@@ -19,5 +19,15 @@ namespace Keepr.Services
         {
             return _repo.Create(newVaultKeep);
         }
+
+        // internal VaultKeep Delete(int id, string userId)
+        // {
+        //     VaultKeep foundKeep = _repo.Delete(id, userId);
+        //     if(foundKeep.UserId != userId)
+        //     {
+        //         throw new Exception("This isn't yours!");
+        //     }
+        //     if(_repo.Delete)
+        // }
     }
 }
