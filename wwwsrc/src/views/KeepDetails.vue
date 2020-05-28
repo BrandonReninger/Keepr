@@ -30,7 +30,7 @@
       </div>
       <button
         v-show="this.publicKeep.userId == this.$auth.user.sub"
-        @click="deleteKeep(keepData.id)"
+        @click="deleteKeep(publicKeep.id)"
         class="btn btn-danger"
       >DELETE</button>
     </div>
@@ -50,7 +50,7 @@ export default {
   },
   computed: {
     publicKeep() {
-      console.log(this.$auth.user);
+      // console.log(this.$auth.user);
       console.log(this.$store.state.activePublicKeep);
       return this.$store.state.activePublicKeep;
     },
@@ -76,7 +76,8 @@ export default {
       // });
     },
     deleteKeep(id) {
-      this.$store.dispatch("deleteKeep", keepId);
+      console.log("delete", publicKeep.id);
+      this.$store.dispatch("deleteKeep", publicKeep.id);
     }
   },
   components: {}
