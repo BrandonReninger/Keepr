@@ -1,7 +1,7 @@
 <template>
-  <div class="keeps">
-    <div class="row">
-      <div class="col-3" type="button" @click="keepDetails()">
+  <div class="keeps container">
+    <div class="card-columns">
+      <div type="button" @click="keepDetails()">
         <div class="card" style="18rem;">
           <img v-if="keepData.img" :src="keepData.img" class="card-img-top img-fluid" />
           <div class="card-body">
@@ -49,4 +49,7 @@ export default {
 
 
 <style scoped>
+.card-columns {
+  column-count: 3;
+}
 </style>

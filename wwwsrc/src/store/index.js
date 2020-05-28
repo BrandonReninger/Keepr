@@ -142,8 +142,7 @@ export default new Vuex.Store({
     }, keepId) {
       try {
         await api.delete('keeps/' + keepId)
-        // dispatch('getVaultKeeps')
-        // dispatch('getPublicKeeps')
+        dispatch("getPublicKeeps")
       } catch (error) {
         console.error(error)
       }
