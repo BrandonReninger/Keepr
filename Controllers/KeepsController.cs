@@ -84,5 +84,21 @@ namespace Keepr.Controllers
                 return BadRequest(err.Message);
             }
         }
+
+        [Authorize]
+        [HttpPut("{id}")]
+        public ActionResult<Keep> Edit(int id, [FromBody] Keep updatedKeep)
+        {
+            try
+            {
+                var userId = HttpContext.User.FindFirst(ClaimTypes.NameIdentifier).Value;
+                updatedKeep.UserId = userId;
+                return Ok(_ks.Edit(id, updatedKeep));
+            }
+            catch (System.Exception err)
+            {
+                return BadRequest(err.Message);
+            }
+        }
     }
 }

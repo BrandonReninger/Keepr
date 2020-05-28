@@ -1,7 +1,7 @@
 <template>
   <div class="KeepDetails container-fluid">
     <div class="card" style="width: 18rem;">
-      <img :src="publicKeep.img" class="card-img-top" alt="..." />
+      <img v-if="publicKeep.img" :src="publicKeep.img" class="card-img-top" alt="..." />
       <div class="card-body">
         <h5 class="card-title">{{publicKeep.name}}</h5>
         <p class="card-text">{{publicKeep.description}}</p>

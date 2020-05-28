@@ -3,7 +3,7 @@
     <div class="row">
       <div class="col-3" type="button" @click="keepDetails()">
         <div class="card" style="18rem;">
-          <img :src="keepData.img" class="card-img-top img-fluid" />
+          <img v-if="keepData.img" :src="keepData.img" class="card-img-top img-fluid" />
           <div class="card-body">
             <h5 class="card-title">{{keepData.name}}</h5>
           </div>

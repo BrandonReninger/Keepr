@@ -59,5 +59,22 @@ namespace Keepr.Repositories
             ";
             return _db.Query<VaultKeepViewModel>(sql, new { vaultId, userId });
         }
+
+        internal Keep Edit(Keep keepToUpdate)
+        {
+            string sql = @"
+            UPDATE keeps
+            SET
+            name = @Name,
+            description = @Description,
+            img = @Img,
+            isPrivate = @IsPrivate,
+            views =@Views,
+            shares =@Shares,
+            keeps =@Keeps
+            WHERE id = @Id LIMIT 1";
+            _db.Execute(sql, keepToUpdate);
+            return keepToUpdate;
+        }
     }
 }

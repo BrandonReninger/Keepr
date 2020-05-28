@@ -51,5 +51,18 @@ namespace Keepr.Services
         {
             return _repo.GetKeepsByVaultId(vaultId, userId);
         }
+
+        internal Keep Edit(int id, Keep updatedKeep)
+        {
+            Keep foundKeep = GetById(id);
+            foundKeep.Name = updatedKeep.Name;
+            foundKeep.Description = updatedKeep.Description;
+            foundKeep.Img = updatedKeep.Img;
+            foundKeep.IsPrivate = updatedKeep.IsPrivate;
+            foundKeep.Views = updatedKeep.Views;
+            foundKeep.Shares = updatedKeep.Shares;
+            foundKeep.Keeps = updatedKeep.Keeps;
+            return _repo.Edit(foundKeep);
+        }
     }
 }

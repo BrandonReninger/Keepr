@@ -1,6 +1,6 @@
 <template>
   <div class="VaultKeeps">
-    <div v-for="vaultKeep in vaultKeeps" :key="vaultKeep.vaultKeepId"></div>
+    <keeps v-for="vaultKeep in vaultKeeps" :key="vaultKeep.vaultKeepId"></keeps>
   </div>
 </template>
 
@@ -14,7 +14,6 @@ export default {
   },
   mounted() {
     // this.$store.dispatch("getActiveVault", this.$route.params.vaultId);
-    console.log("vaultKeep");
     this.$store.dispatch("getVaultKeeps", this.$route.params.vaultId);
   },
   computed: {
