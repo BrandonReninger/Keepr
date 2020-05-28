@@ -74,6 +74,7 @@ export default new Vuex.Store({
       try {
         let res = await api.post('vaultkeeps/', dataObject)
         commit('setVaultKeeps')
+        dispatch('saveCount')
       } catch (error) {
         console.error(error)
       }
@@ -143,6 +144,18 @@ export default new Vuex.Store({
       try {
         await api.delete('keeps/' + keepId)
         dispatch("getPublicKeeps")
+      } catch (error) {
+        console.error(error)
+      }
+    },
+
+    async saveCount({
+      commit
+    }, editObject) {
+      try {
+        debugger
+        let res = await api.put('keeps/' + editObject.id, editObject)
+        commit("setPublicKeeps", res.data)
       } catch (error) {
         console.error(error)
       }

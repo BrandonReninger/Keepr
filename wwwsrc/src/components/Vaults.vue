@@ -1,6 +1,6 @@
 <template>
   <div class="vaults row">
-    <div class="col-3 shadow" @click.prevent="getVaultKeeps(vaultData.id)">
+    <div class="col-3 card-columns" @click.prevent="getVaultKeeps(vaultData.id)">
       <div class="card" style="width: 18rem;">
         <div class="card-body">
           <h5 class="card-title">{{vaultData.name}}</h5>
@@ -36,6 +36,8 @@ export default {
     },
 
     deleteVault(vaultId) {
+      if (confirm("Are you sure? This will delete everyting")) {
+      }
       this.$store.dispatch("deleteVault", vaultId);
     }
   },

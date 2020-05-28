@@ -8,9 +8,9 @@
             <h5 class="card-title">{{keepData.name}}</h5>
           </div>
           <ul class="list-group list-group-flush">
-            <li class="list-group-item">{{keepData.views}}</li>
-            <li class="list-group-item">{{keepData.shares}}</li>
-            <li class="list-group-item">{{keepData.keeps}}</li>
+            <li class="list-group-item">views: {{keepData.views}}</li>
+            <li class="list-group-item">shares: {{keepData.shares}}</li>
+            <li class="list-group-item">saves: {{keepData.keeps}}</li>
           </ul>
         </div>
       </div>

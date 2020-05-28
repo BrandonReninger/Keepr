@@ -1,6 +1,6 @@
 <template>
   <div class="create-vault">
-    <form class="border border-rounded bg-info" @submit.prevent="createVault()">
+    <form class="border border-rounded bg-transparent" @submit.prevent="createVault()">
       <h3 class="text-center">Create New Vault</h3>
       <div class="form-group">
         <label for="name">Name:</label>

@@ -19,7 +19,7 @@ export default new Router({
       path: "/",
       name: "home",
       component: Home,
-      beforeEnter: authGuard
+
     },
     {
       path: "/dashboard",

@@ -6,7 +6,7 @@
         <create-vault></create-vault>
       </div>
     </div>
-    <vaults v-for="vault in vaults" :key="vault.id" :vaultData="vault"></vaults>
+    <vaults class="mt-3" v-for="vault in vaults" :key="vault.id" :vaultData="vault"></vaults>
   </div>
 </template>
 

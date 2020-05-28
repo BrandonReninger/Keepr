@@ -7,9 +7,9 @@
         <p class="card-text">{{publicKeep.description}}</p>
       </div>
       <ul class="list-group list-group-flush">
-        <li class="list-group-item">{{publicKeep.views}}</li>
-        <li class="list-group-item">{{publicKeep.shares}}</li>
-        <li class="list-group-item">{{publicKeep.keeps}}</li>
+        <li class="list-group-item">views: {{publicKeep.views}}</li>
+        <li class="list-group-item">shares: {{publicKeep.shares}}</li>
+        <li class="list-group-item">saves: {{publicKeep.keeps}}</li>
       </ul>
       <div class="dropdown">
         <button
@@ -61,19 +61,18 @@ export default {
   },
   methods: {
     saveKeepToVault(vaultId) {
-      this.publicKeep.keeps++;
       let dataObject = {
         vaultId: vaultId,
         keep: this.publicKeep,
         keepId: this.publicKeep.id
       };
+      let editObject = JSON.parse(JSON.stringify(this.publicKeep));
+      editObject.keeps = editObject.keeps++;
+
       this.$store.dispatch("saveKeepToVault", dataObject);
       this.$store.commit("setVaultKeeps");
       this.$store.dispatch("getVaultKeeps", vaultId);
-      // this.$route.push({
-      //   name: "VaultKeeps",
-      //   params: { vaultId: this.vaultData.id }
-      // });
+      this.$store.dispatch("saveCount", editObject);
     },
     deleteKeep(id) {
       console.log("delete", this.publicKeep.id);
