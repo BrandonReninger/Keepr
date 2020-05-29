@@ -153,13 +153,12 @@ export default new Vuex.Store({
       commit
     }, keep) {
       try {
-        console.log(keep)
         let res = await api.put('keeps/' + keep.id, keep)
         commit("setPublicKeeps", res.data)
       } catch (error) {
         console.error(error)
       }
-    }
+    },
 
   }
 });
