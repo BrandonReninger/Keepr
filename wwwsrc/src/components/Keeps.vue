@@ -7,9 +7,18 @@
           <h5 class="card-title">{{keepData.name}}</h5>
         </div>
         <ul class="list-group list-group-flush">
-          <li class="list-group-item">views: {{keepData.views}}</li>
-          <li class="list-group-item">shares: {{keepData.shares}}</li>
-          <li class="list-group-item">saves: {{keepData.keeps}}</li>
+          <li class="list-group-item">
+            <i class="fas fa-eye"></i>
+            {{keepData.views}}
+          </li>
+          <li class="list-group-item">
+            <i class="fas fa-share-square"></i>
+            {{keepData.shares}}
+          </li>
+          <li class="list-group-item">
+            <i class="fas fa-save"></i>
+            {{keepData.keeps}}
+          </li>
         </ul>
       </div>
     </div>
