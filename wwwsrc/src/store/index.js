@@ -19,7 +19,7 @@ export default new Vuex.Store({
   state: {
     publicKeeps: [],
     activePublicKeep: {},
-    // activeVault: {},
+    userKeeps: [],
     vaultKeeps: [],
     vaults: []
   },
@@ -35,6 +35,9 @@ export default new Vuex.Store({
     },
     setActivePublicKeep(state, activePublicKeep) {
       state.activePublicKeep = activePublicKeep;
+    },
+    setUserKeeps(state, userKeeps) {
+      state.userKeeps = userKeeps
     }
   },
   actions: {
@@ -51,6 +54,17 @@ export default new Vuex.Store({
       try {
         let res = await api.get('keeps')
         commit('setPublicKeeps', res.data)
+      } catch (error) {
+        console.error(error)
+      }
+    },
+
+    async getUserKeeps({
+      commit
+    }, userId) {
+      try {
+        let res = await api.get('keeps', userId)
+        commit('setUserKeeps', res.data)
       } catch (error) {
         console.error(error)
       }

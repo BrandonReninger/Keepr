@@ -2,7 +2,7 @@
   <div class="home">
     <div class="row justify-content-center">
       <div class="col-6">
-        <create-keep></create-keep>
+        <create-keep v-show="this.$auth.user"></create-keep>
       </div>
     </div>
     <div class="row ml-2 mr-2">

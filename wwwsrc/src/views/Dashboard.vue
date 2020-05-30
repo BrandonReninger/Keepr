@@ -7,12 +7,7 @@
       </div>
     </div>
     <vaults class="mt-3" v-for="vault in vaults" :key="vault.id" :vaultData="vault"></vaults>
-    <!-- <keeps
-      v-show="this.publicKeep.userId == this.$auth.user.sub"
-      v-for="publicKeep in publicKeeps"
-      :key="publicKeep.id"
-      :keepData="publicKeep"
-    ></keeps>-->
+    <keeps v-for="userKeep in userKeeps" :key="userKeep.id" :keepData="userKeep"></keeps>
   </div>
 </template>
 
@@ -26,11 +21,16 @@ export default {
   mounted() {
     this.$store.dispatch("getVaultsByUserId");
     this.$store.dispatch("getPublicKeeps");
+    this.$store.dispatch("getUserKeeps", this.$auth.user.sub);
     // this.$store.dispatch("getVaultKeeps", this.vault.id);
   },
   computed: {
     vaults() {
       return this.$store.state.vaults;
+    },
+
+    userKeeps() {
+      return this.$store.state.userKeeps;
     },
 
     publicKeeps() {

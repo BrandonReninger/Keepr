@@ -28,6 +28,11 @@ namespace Keepr.Services
             return foundKeep;
         }
 
+        internal IEnumerable<Keep> GetByUserId(string userId)
+        {
+            return _repo.GetByUserId(userId);
+        }
+
         public Keep Create(Keep newKeep)
         {
             return _repo.Create(newKeep);
@@ -64,5 +69,6 @@ namespace Keepr.Services
             foundKeep.Keeps = updatedKeep.Keeps;
             return _repo.Edit(foundKeep);
         }
+
     }
 }
