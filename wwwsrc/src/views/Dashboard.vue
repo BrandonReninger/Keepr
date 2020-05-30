@@ -7,7 +7,10 @@
       </div>
     </div>
     <vaults class="mt-3" v-for="vault in vaults" :key="vault.id" :vaultData="vault"></vaults>
-    <keeps v-for="userKeep in userKeeps" :key="userKeep.id" :keepData="userKeep"></keeps>
+    <h1>Your Keeps</h1>
+    <div class="row">
+      <keeps v-for="userKeep in userKeeps" :key="userKeep.id" :keepData="userKeep"></keeps>
+    </div>
   </div>
 </template>
 
