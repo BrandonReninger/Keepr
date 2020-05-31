@@ -1,38 +1,41 @@
 <template>
   <div class="KeepDetails container-fluid">
-    <div class="card" style="width: 18rem;">
-      <img v-if="publicKeep.img" :src="publicKeep.img" class="card-img-top" alt="..." />
-      <div class="card-body">
-        <h5 class="card-title">{{publicKeep.name}}</h5>
-        <p class="card-text">{{publicKeep.description}}</p>
-      </div>
-      <ul class="list-group list-group-flush">
-        <li class="list-group-item">views: {{publicKeep.views}}</li>
-        <li class="list-group-item">shares: {{publicKeep.shares}}</li>
-        <li class="list-group-item">saves: {{publicKeep.keeps}}</li>
-      </ul>
-      <div class="dropdown">
-        <button
-          class="btn btn-secondary dropdown-toggle"
-          type="button"
-          id="dropdownMenuButton"
-          data-toggle="dropdown"
-        >Add To Vault</button>
-        <div class="dropdown-menu">
-          <a
-            class="dropdown-item"
-            v-show="vault.name"
-            v-for="vault in vaults"
-            :key="vault.id"
-            @click="saveKeepToVault(vault.id)"
-          >{{vault.name}}</a>
+    //NOTE probably turn this into a modal rather than view route
+    <div class="row justify-content-center">
+      <div class="card" style="width: 18rem;">
+        <img v-if="publicKeep.img" :src="publicKeep.img" class="card-img-top" alt="..." />
+        <div class="card-body">
+          <h5 class="card-title">{{publicKeep.name}}</h5>
+          <p class="card-text">{{publicKeep.description}}</p>
         </div>
+        <ul class="list-group list-group-flush">
+          <li class="list-group-item">views: {{publicKeep.views}}</li>
+          <li class="list-group-item">shares: {{publicKeep.shares}}</li>
+          <li class="list-group-item">saves: {{publicKeep.keeps}}</li>
+        </ul>
+        <div class="dropdown">
+          <button
+            class="btn btn-secondary dropdown-toggle"
+            type="button"
+            id="dropdownMenuButton"
+            data-toggle="dropdown"
+          >Add To Vault</button>
+          <div class="dropdown-menu">
+            <a
+              class="dropdown-item"
+              v-show="vault.name"
+              v-for="vault in vaults"
+              :key="vault.id"
+              @click="saveKeepToVault(vault.id)"
+            >{{vault.name}}</a>
+          </div>
+        </div>
+        <button
+          v-show="this.publicKeep.userId == this.$auth.user.sub"
+          @click="deleteKeep()"
+          class="btn btn-danger"
+        >DELETE</button>
       </div>
-      <button
-        v-show="this.publicKeep.userId == this.$auth.user.sub"
-        @click="deleteKeep()"
-        class="btn btn-danger"
-      >DELETE</button>
     </div>
   </div>
 </template>

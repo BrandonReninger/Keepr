@@ -1,25 +1,20 @@
 <template>
-  <div class="keeps">
+  <div class="keeps mt-3">
     <div type="button" @click="keepDetails()">
       <div class="card" style="18rem;">
         <img v-if="keepData.img" :src="keepData.img" class="card-img-top img-fluid" />
         <div class="card-body">
           <h5 class="card-title">{{keepData.name}}</h5>
         </div>
-        <ul class="list-group list-group-flush">
-          <li class="list-group-item">
-            <i class="fas fa-eye"></i>
-            {{keepData.views}}
-          </li>
-          <li class="list-group-item">
-            <i class="fas fa-share-square"></i>
-            {{keepData.shares}}
-          </li>
-          <li class="list-group-item">
-            <i class="fas fa-save"></i>
-            {{keepData.keeps}}
-          </li>
-        </ul>
+        <hr />
+        <div class="d-flex justify-content-between">
+          <i class="fas fa-eye"></i>
+          {{keepData.views}}
+          <i class="fas fa-share-square"></i>
+          {{keepData.shares}}
+          <i class="fas fa-save"></i>
+          {{keepData.keeps}}
+        </div>
       </div>
     </div>
   </div>

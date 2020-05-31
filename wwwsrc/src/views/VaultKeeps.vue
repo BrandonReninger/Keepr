@@ -2,7 +2,11 @@
   <div class="VaultKeeps">
     <div class="row">
       //ANCHOR figure out a way to delete a vaultKeep, while preserving it within publicKeeps
-      <keeps :keepData="vaultKeep" v-for="vaultKeep in vaultKeeps" :key="vaultKeep.vaultKeepId"></keeps>
+      <keeps
+        :vaultKeepData="vaultKeep"
+        v-for="vaultKeep in vaultKeeps"
+        :key="vaultKeep.vaultKeepId"
+      ></keeps>
     </div>
   </div>
 </template>
