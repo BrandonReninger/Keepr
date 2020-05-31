@@ -1,7 +1,6 @@
 <template>
   <div class="KeepDetails container-fluid">
-    //NOTE probably turn this into a modal rather than view route
-    <div class="row justify-content-center">
+    <div class="row justify-content-center mt-2 mb-2">
       <div class="card" style="width: 18rem;">
         <img v-if="publicKeep.img" :src="publicKeep.img" class="card-img-top" alt="..." />
         <div class="card-body">
@@ -13,9 +12,9 @@
           <li class="list-group-item">shares: {{publicKeep.shares}}</li>
           <li class="list-group-item">saves: {{publicKeep.keeps}}</li>
         </ul>
-        <div class="dropdown">
+        <div class="dropdown d-flex justify-content-center">
           <button
-            class="btn btn-secondary dropdown-toggle"
+            class="btn btn-secondary dropdown-toggle mt-2 mb-2"
             type="button"
             id="dropdownMenuButton"
             data-toggle="dropdown"
@@ -33,13 +32,14 @@
         <button
           v-show="this.publicKeep.userId == this.$auth.user.sub"
           @click="deleteKeep()"
-          class="btn btn-danger"
+          class="btn btn-danger btn-sm"
         >DELETE</button>
       </div>
     </div>
   </div>
 </template>
 
+//NOTE probably turn this into a modal rather than view route
 
 <script>
 export default {
@@ -80,9 +80,11 @@ export default {
       this.$store.dispatch("editKeep", dataObject.keep);
     },
     deleteKeep(id) {
-      console.log("delete", this.publicKeep.id);
-      this.$store.dispatch("deleteKeep", this.publicKeep.id);
-      this.$router.push({ name: "home" });
+      if (confirm("Are you sure? This will delete card from your vault.")) {
+        this.$store.dispatch("deleteKeep", this.publicKeep.id);
+        this.$router.push({ name: "home" });
+      } else {
+      }
     }
   },
   components: {}

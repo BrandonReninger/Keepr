@@ -4,16 +4,16 @@
       <div class="card" style="18rem;">
         <img v-if="keepData.img" :src="keepData.img" class="card-img-top img-fluid" />
         <div class="card-body">
-          <h5 class="card-title">{{keepData.name}}</h5>
+          <h5 class="card-title text-center d-flex flex nowrap">{{keepData.name}}</h5>
         </div>
         <hr />
-        <div class="d-flex justify-content-between">
+        <div class="d-flex justify-content-between ml-3 mr-3">
           <i class="fas fa-eye"></i>
-          {{keepData.views}}
+          <p>: {{keepData.views}}</p>
           <i class="fas fa-share-square"></i>
-          {{keepData.shares}}
+          <p>: {{keepData.shares}}</p>
           <i class="fas fa-save"></i>
-          {{keepData.keeps}}
+          <p>: {{keepData.keeps}}</p>
         </div>
       </div>
     </div>
