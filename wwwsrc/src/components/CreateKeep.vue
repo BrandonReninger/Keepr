@@ -1,5 +1,5 @@
 <template>
-  <div class="create-keep">
+  <div class="create-keep border border-white rounded">
     <form @submit.prevent="createKeep()">
       <h3 class="text-center">Create a Keep</h3>
       <div class="form-group">
@@ -32,15 +32,18 @@
           v-model="newKeep.img"
         />
       </div>
-      <div class="form-group">
+      <!-- <div class="form-group">
         <label for="checkbox">Mark as Public?</label>
         <input type="checkbox" id="checkbox" v-model="newKeep.isPrivate" />
+      </div>-->
+      <div class="row justify-content-center mb-2">
+        <button class="btn btn-primary" type="submit">Create Keep</button>
       </div>
-      <button class="btn btn-primary" type="submit">Create Keep</button>
     </form>
   </div>
 </template>
 
+//NOTE try to make card just an image and have stats pop up on hover
 
 <script>
 export default {

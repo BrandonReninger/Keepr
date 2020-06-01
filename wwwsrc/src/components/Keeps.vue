@@ -9,11 +9,11 @@
         <hr />
         <div class="d-flex justify-content-between ml-3 mr-3">
           <i class="fas fa-eye"></i>
-          <p>: {{keepData.views}}</p>
+          <p>{{keepData.views}}</p>
           <i class="fas fa-share-square"></i>
-          <p>: {{keepData.shares}}</p>
+          <p>{{keepData.shares}}</p>
           <i class="fas fa-save"></i>
-          <p>: {{keepData.keeps}}</p>
+          <p>{{keepData.keeps}}</p>
         </div>
       </div>
     </div>
